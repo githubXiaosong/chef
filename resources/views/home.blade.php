@@ -14,20 +14,21 @@
                 @foreach($cooks as $cook)
                     <div class="col-sm-6 col-md-3">
                         <div class="thumbnail">
+                            <a href="{{ $cook->url }}">
+                                <img style="" src="{{ '/storage/'.$cook->cover_uri }}" alt="...">
 
-                            <img style="" src="{{ '/storage/'.$cook->cover_uri }}" alt="...">
+                                <div class="caption">
+                                    <div>
+                                        <h3 class="pull-left">{{ $cook->title }}</h3>
 
-                            <div class="caption">
-                                <div>
-                                    <h3 class="pull-left">{{ $cook->title }}</h3>
+                                        <h3 class="pull-right" style="font-size: 15px">{{ $cook->user->name }}</h3>
 
-                                    <h3 class="pull-right" style="font-size: 15px">{{ $cook->user->name }}</h3>
-
-                                    <div style="clear: both;"></div>
-                                    <h5 style="font-size: 15px">{{ $cook->desc }}</h5>
-                                    <h5 style="font-size: 15px">联系方式：{{ $cook->user->phone }}</h5>
+                                        <div style="clear: both;"></div>
+                                        <h5 style="font-size: 15px">{{ $cook->desc }}</h5>
+                                        <h5 style="font-size: 15px">联系方式：{{ $cook->user->phone }}</h5>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
 
                         </div>
 

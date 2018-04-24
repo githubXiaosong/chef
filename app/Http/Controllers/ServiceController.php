@@ -19,6 +19,7 @@ class ServiceController extends Controller
                 'title' => 'required|max:20',
                 'desc' => 'required|max:255',
                 'cover' => 'required|image',
+                'url' => 'required|active_url'
 
             ],
             [
@@ -33,6 +34,7 @@ class ServiceController extends Controller
 
         $clouthes = new Cook();
         $clouthes->title = rq('title');
+        $clouthes->url = rq('url');
         $clouthes->desc = rq('desc');
         $clouthes->cover_uri = $cover_path;
         $clouthes->user_id = $user->id;

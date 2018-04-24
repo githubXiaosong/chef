@@ -46,6 +46,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">地址</label>
+
+                                <div class="col-sm-6">
+                                    <input name="url" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">封面图片</label>
 
                                 <div class="col-sm-6">

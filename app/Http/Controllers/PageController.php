@@ -11,6 +11,7 @@ class PageController extends Controller
 {
     //
 
+
     public function addCook(){
         return view('addCook');
     }
