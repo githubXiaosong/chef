@@ -14,7 +14,7 @@
                 @foreach($cooks as $cook)
                     <div class="col-sm-6 col-md-3">
                         <div class="thumbnail">
-                            <a href="{{ $cook->url }}">
+                            <a href="{{ url('cookDetail/'.$cook->id) }}">
                                 <img style="" src="{{ '/storage/'.$cook->cover_uri }}" alt="...">
 
                                 <div class="caption">

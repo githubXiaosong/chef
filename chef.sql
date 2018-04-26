@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-04-20 16:21:52
+Date: 2018-04-24 20:11:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `cooks`;
 CREATE TABLE `cooks` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
+  `url` varchar(2550) CHARACTER SET utf8 DEFAULT NULL,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `desc` varchar(255) CHARACTER SET utf8 NOT NULL,
   `cover_uri` varchar(255) NOT NULL,
@@ -31,16 +32,17 @@ CREATE TABLE `cooks` (
   PRIMARY KEY (`id`),
   KEY `1` (`user_id`),
   CONSTRAINT `1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of cooks
 -- ----------------------------
-INSERT INTO `cooks` VALUES ('1', '2', 'wadasd', 'asdasdadad', 'images/326fdf2f1c3288cec2889361c01f6146.jpeg', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `cooks` VALUES ('2', '2', 'ohohok', 'woshixiaosong', 'images/cbc6d7e8ee9c60cb6c8c8befe4990f26.jpeg', '0', '2018-04-19 03:00:13', '2018-04-19 03:00:13');
-INSERT INTO `cooks` VALUES ('3', '2', '电影', 'test1111', 'images/4cd0865bdf74aef5f4859f3cdd41999d.jpeg', '0', '2018-04-19 03:01:16', '2018-04-19 03:01:16');
-INSERT INTO `cooks` VALUES ('4', '2', 'Epic ', 'woshixiaosong', 'images/278ca2a5c097bd48c255ef87208bf987.jpeg', '0', '2018-04-20 04:51:29', '2018-04-20 04:51:29');
-INSERT INTO `cooks` VALUES ('5', '2', '肖申克的救赎', '第二件衣服的描述', 'images/b1211d1ca617da777c29f8d76782543f.jpeg', '0', '2018-04-20 04:53:05', '2018-04-20 04:53:05');
+INSERT INTO `cooks` VALUES ('1', '2', null, 'wadasd', 'asdasdadad', 'images/326fdf2f1c3288cec2889361c01f6146.jpeg', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `cooks` VALUES ('2', '2', null, 'ohohok', 'woshixiaosong', 'images/cbc6d7e8ee9c60cb6c8c8befe4990f26.jpeg', '0', '2018-04-19 03:00:13', '2018-04-19 03:00:13');
+INSERT INTO `cooks` VALUES ('3', '2', null, '电影', 'test1111', 'images/4cd0865bdf74aef5f4859f3cdd41999d.jpeg', '0', '2018-04-19 03:01:16', '2018-04-19 03:01:16');
+INSERT INTO `cooks` VALUES ('4', '2', null, 'Epic ', 'woshixiaosong', 'images/278ca2a5c097bd48c255ef87208bf987.jpeg', '0', '2018-04-20 04:51:29', '2018-04-20 04:51:29');
+INSERT INTO `cooks` VALUES ('5', '2', null, '肖申克的救赎', '第二件衣服的描述', 'images/b1211d1ca617da777c29f8d76782543f.jpeg', '0', '2018-04-20 04:53:05', '2018-04-20 04:53:05');
+INSERT INTO `cooks` VALUES ('6', '2', 'https://www.imooc.com/video/16150', '肖申克的救赎', 'woshixiaosong', 'images/da9bd6a1474ac425f35acc8cc2ca5283.jpeg', '0', '2018-04-24 03:02:44', '2018-04-24 03:02:44');
 
 -- ----------------------------
 -- Table structure for `migrations`
