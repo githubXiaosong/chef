@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Cook;
 use App\User;
 use Illuminate\Http\Request;
@@ -42,6 +43,34 @@ class ServiceController extends Controller
         $clouthes->save();
 
         return back()->with('suc_msg', 'upload success');
+
+    }
+
+    public function addComment(Request $request)
+    {
+
+        $validator = Validator::make(
+            rq(),
+            [
+                'content' => 'required|max:20',
+                'cook_id' => 'required|exists:cooks,id',
+            ],
+            [
+            ]
+        );
+        if ($validator->fails())
+            return back()->with(['err_msg' => $validator->messages()]);
+
+
+        $user = Auth::user();
+        $comment = new Comment();
+        $comment->content = rq('content');
+        $comment->cook_id = rq('cook_id');
+        $comment->user_id = $user->id;
+
+        $comment->save();
+
+        return back()->with('suc_msg', '添加成功');
 
     }
 

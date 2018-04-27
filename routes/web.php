@@ -38,6 +38,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['prefix' => 'api'], function () {
         Route::post('/addCook', 'ServiceController@addCook');
+        Route::post('/addComment', 'ServiceController@addComment');
         Route::post('/updateUser', 'ServiceController@updateUser');
 
         //APP
@@ -61,6 +62,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/memberEdit/{user_id}', 'Admin\PageController@memberEdit');
         Route::get('/memberList', 'Admin\PageController@memberList');
 
+        Route::get('/commentList', 'Admin\PageController@commentList');
 
         Route::get('/cookEdit/{cook_id}', 'Admin\PageController@cookEdit');
         Route::get('/cookList', 'Admin\PageController@cookList');
@@ -75,6 +77,8 @@ Route::group(['middleware' => 'web'], function () {
             Route::post('/editCook', 'Admin\ServiceController@editCook');
             Route::post('/changeCookStatus', 'Admin\ServiceController@changeCookStatus');
             Route::post('/deleteCook', 'Admin\ServiceController@deleteCook');
+
+            Route::post('/deleteComment', 'Admin\ServiceController@deleteComment');
 
         });
     });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Comment;
 use App\Cook;
 use App\Http\Controllers\Controller;
 
@@ -215,5 +216,28 @@ class ServiceController extends Controller
         return back()->with('suc_msg', '修改成功');
 
     }
+
+    public function deleteComment()
+    {
+
+        $validator = Validator::make(
+            rq(),
+            [
+                'comment_id' => 'required|exists:comments,id'
+            ],
+            [
+
+            ]
+        );
+        if ($validator->fails())
+            return back()->with(['err_msg' => $validator->messages()]);
+
+        $comment = Comment::find(rq('comment_id'));
+
+        $comment->delete();
+
+        return back()->with('suc_msg', '删除成功');
+    }
+
 }
 

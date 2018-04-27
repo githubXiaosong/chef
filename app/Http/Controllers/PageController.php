@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Cook;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class PageController extends Controller
 
     public function cookDetail($cook_id){
         $cook = Cook::with(['user'])->find($cook_id);
-        return view('cookDetail')->with(['cook'=>$cook]);
+        $comments = Comment::where(['cook_id'=>$cook_id])->with(['user'])->get();
+        return view('cookDetail')->with(['cook'=>$cook,'comments'=>$comments]);
     }
 
 

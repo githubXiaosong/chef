@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Clouthes;
+use App\Comment;
 use App\Cook;
 use App\Course;
 use App\Http\Controllers\Controller;
@@ -61,6 +62,12 @@ class PageController extends Controller
         return view('admin.cook-edit')->with(['cook' => $cook]);
     }
 
+
+    public function commentList()
+    {
+        $comments = Comment::with('user')->get();
+        return view('admin.comment-list')->with(['comments' => $comments]);
+    }
 
 
 }
