@@ -10,10 +10,34 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-04-26 21:50:09
+Date: 2018-04-27 11:53:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `comments`
+-- ----------------------------
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE `comments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `cook_id` int(10) unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `11` (`user_id`),
+  KEY `22` (`cook_id`),
+  CONSTRAINT `11` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `22` FOREIGN KEY (`cook_id`) REFERENCES `cooks` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of comments
+-- ----------------------------
+INSERT INTO `comments` VALUES ('2', '真的好', '2', '7', '2018-04-27 03:28:38', '2018-04-27 03:28:38');
+INSERT INTO `comments` VALUES ('3', '测试评论测试评论测试评论测试评论', '2', '7', '2018-04-27 03:51:12', '2018-04-27 03:51:12');
 
 -- ----------------------------
 -- Table structure for `cooks`
@@ -32,11 +56,13 @@ CREATE TABLE `cooks` (
   PRIMARY KEY (`id`),
   KEY `1` (`user_id`),
   CONSTRAINT `1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of cooks
 -- ----------------------------
+INSERT INTO `cooks` VALUES ('7', '2', 'http://www.360doc.com/content/16/0711/20/9008018_574787603.shtml', '肖申克的救赎', '第十件衣服的描述', 'images/da9bd6a1474ac425f35acc8cc2ca5283.jpeg', '0', '2018-04-27 02:27:40', '2018-04-27 02:27:40');
+INSERT INTO `cooks` VALUES ('8', '2', 'http://www.360doc.com/content/17/0418/06/40694459_646452208.shtml', '肖申克的救赎', '第十件衣服的描述', 'images/34611b7bd3b9f9c8f70791e1b297174c.png', '0', '2018-04-27 02:28:05', '2018-04-27 02:28:05');
 
 -- ----------------------------
 -- Table structure for `migrations`

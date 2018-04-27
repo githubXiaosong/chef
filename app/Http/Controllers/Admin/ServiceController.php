@@ -129,6 +129,8 @@ class ServiceController extends Controller
         if ($validator->fails())
             return back()->withErrors($validator->messages());
 
+        Comment::where(['user_id'=>rq('user_id')])->delete();
+
         $user = User::find(rq('user_id'));
         $user->delete();
 
@@ -183,6 +185,10 @@ class ServiceController extends Controller
         );
         if ($validator->fails())
             return back()->with(['err_msg' => $validator->messages()]);
+
+        Comment::where(['cook_id'=>rq('cook_id')])->delete();
+
+
 
         $cook = Cook::find(rq('cook_id'));
 
