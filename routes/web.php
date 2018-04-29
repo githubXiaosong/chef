@@ -33,7 +33,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index')->middleware('auth');
     Route::get('/addCook', 'PageController@addCook')->middleware('auth');
     Route::get('/mine', 'PageController@mine')->middleware('auth');
-    Route::get('/cookDetail/{cook_id}', 'PageController@cookDetail')->middleware('auth');
+    Route::get('/cookDetail/{cook_id}', 'PageController@cookDetail');
 
 
     Route::group(['prefix' => 'api'], function () {
